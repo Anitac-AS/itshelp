@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>服務台入口網</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#B87318">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+    <defs>
+      <symbol id="ic-face" viewBox="0 0 24 24">...</symbol>
+      </defs>
+  </svg>
+
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+  <div class="shell">
+    <div class="sidebar" id="sidebar">
+      <div class="sb-brand">
+        <div class="sb-brand-name">服務台入口網</div>
+        <div class="sb-brand-sub">綜規組內部工具與知識庫</div>
+      </div>
+      <div class="sb-nav" id="sb-nav"></div>
+      <div class="sb-footer">綜規組 · 2025</div>
+    </div>
+    
+    <div class="main">
+      <div id="loading-mask" style="text-align:center; padding:50px; color:var(--text-3);">
+        資料載入中...
+      </div>
+
+      <div id="content-area" style="display:none;">
+        </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // 註冊 Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
